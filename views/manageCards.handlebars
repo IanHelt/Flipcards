@@ -1,0 +1,20 @@
+{{#each cards}}
+<ul>
+  <h4>Card {{inc @index}}</h4>
+  <li>{{front}}</li>
+  <li>{{back}}</li>
+</ul>
+<h5>Edit</h5>
+<form action="/edit" method="post">
+  <input type="text" name="frontEdit" value="">
+  <input type="text" name="backEdit" value="">
+  <input type="hidden" name="hiddenId" value={{id}}>
+  <button type="submit">Change</button>
+</form>
+<form action="/delete" method="post">
+  <input type="hidden" name="hiddenId" value={{id}}>
+  <button type="submit">Delete</button>
+</form>
+{{/each}}
+<a href="/viewDecks">Back to My Decks</a>
+<a href="/createDeck">Create a Deck</a>

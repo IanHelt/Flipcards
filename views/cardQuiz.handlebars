@@ -1,0 +1,21 @@
+<h1>Quiz</h1>
+
+<div>
+  {{#each cards}}
+  <p>{{ front }}</p>
+  <form class="answerForm" action="/answer" method="post">
+    <input type="text" name="userAnswer" value="">
+    <input type="hidden" name="hiddenId" value={{ id }}>
+    <button type="submit" >Submit</button>
+  </form>
+  {{/each}}
+</div>
+<br/>
+<div>
+  {{#each answered}}
+  <p>{{this}}</p>
+  {{/each}}
+</div>
+<form class="finishForm" action="/finishQuiz" method="post">
+  <button type="submit">Finish Quiz</button>
+</form>

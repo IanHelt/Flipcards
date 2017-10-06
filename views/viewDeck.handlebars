@@ -1,0 +1,25 @@
+<a href="/createDeck">Create a Deck</a>
+<ul>
+  {{#each decks}}
+  <li>
+    {{ name }}
+    <form action="/createCard" method="post">
+        <label for="front">Front</label>
+        <input type="text" name="front" placeholder="Front of Card"/>
+        <label for="back">Back</label>
+        <input type="text" name="back" placeholder="Back of Card"/>
+        <input type="hidden" name="deckOwner" value={{ id }}>
+      <button type="submit">Create Card</button>
+    </form>
+    <form action="/manageCards" method="post">
+      <input type="hidden" name="deckOwner" value={{ id }}>
+    <button type="submit">Manage Cards</button>
+    </form>
+    <form action="/cardQuiz" method="post">
+      <input type="hidden" name="hiddenId" value={{ id }}>
+      <button type="submit">Start Quiz</button>
+    </form>
+</li>
+<br/>
+{{/each}}
+</ul>
