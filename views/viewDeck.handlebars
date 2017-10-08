@@ -1,23 +1,29 @@
 <a href="/createDeck">Create a Deck</a>
+<h1>Deck Viewer</h1>
+<p>Keep in mind that answers on quizzes must be 1:1 with what you entered as the answer at creation</p>
 <ul>
   {{#each decks}}
   <li>
-    {{ name }}
+    <h2>{{ name }}</h2>
+    <form action="/cardQuiz" method="post">
+      <input type="hidden" name="hiddenId" value={{ id }}>
+      <button type="submit">Start Quiz using this Deck</button>
+    </form>
+    <h5>Add a card to this deck</h5>
     <form action="/createCard" method="post">
         <label for="front">Front</label>
-        <input type="text" name="front" placeholder="Front of Card"/>
+        <input type="text" name="front" placeholder="Question"/>
+        <br/>
         <label for="back">Back</label>
-        <input type="text" name="back" placeholder="Back of Card"/>
+        <input type="text" name="back" placeholder="Answer"/>
         <input type="hidden" name="deckOwner" value={{ id }}>
-      <button type="submit">Create Card</button>
+        <br/>
+      <button type="submit">Create this Card</button>
     </form>
+    <h4>Edit/Delete cards in this deck</h4>
     <form action="/manageCards" method="post">
       <input type="hidden" name="deckOwner" value={{ id }}>
     <button type="submit">Manage Cards</button>
-    </form>
-    <form action="/cardQuiz" method="post">
-      <input type="hidden" name="hiddenId" value={{ id }}>
-      <button type="submit">Start Quiz</button>
     </form>
 </li>
 <br/>

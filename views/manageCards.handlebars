@@ -4,16 +4,16 @@
   <li>{{front}}</li>
   <li>{{back}}</li>
 </ul>
-<h5>Edit</h5>
+<h5>Edit this card</h5>
 <form action="/edit" method="post">
-  <input type="text" name="frontEdit" value="">
-  <input type="text" name="backEdit" value="">
+  <input type="text" name="frontEdit" value="" placeholder="Edit Question">
+  <input type="text" name="backEdit" value="" placeholder="Edit Answer">
   <input type="hidden" name="hiddenId" value={{id}}>
   <button type="submit">Change</button>
 </form>
 <form action="/delete" method="post">
   <input type="hidden" name="hiddenId" value={{id}}>
-  <button type="submit">Delete</button>
+  <button type="submit">Delete this Card</button>
 </form>
 {{/each}}
 <a href="/viewDecks">Back to My Decks</a>

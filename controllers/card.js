@@ -107,7 +107,7 @@ answer: function(req, res) {
     console.log(cardBack);
     if (cardBack == userAnswer) {
       console.log('you got it');
-      var correctRes = new String("Correct! " + cardFront + ": " + cardBack);
+      var correctRes = new String("Correct! Question: " + cardFront + " Answer: " + cardBack);
       console.log(correctRes);
       req.session.answeredCards.push(correctRes);
       let cardIndex = req.session.quizCards.findIndex(indexGet);

@@ -1,12 +1,16 @@
 <h1>Quiz</h1>
-
+<p>Answers must be 1:1 with what was provided as the answer at creation
+<br>
+  entering an incorrect answer will erase your input,
+   while entering a correct answer will display a message above the "Finish Quiz" button
+</p>
 <div>
   {{#each cards}}
   <p>{{ front }}</p>
   <form class="answerForm" action="/answer" method="post">
     <input type="text" name="userAnswer" value="">
     <input type="hidden" name="hiddenId" value={{ id }}>
-    <button type="submit" >Submit</button>
+    <button type="submit" >Submit Answer</button>
   </form>
   {{/each}}
 </div>
